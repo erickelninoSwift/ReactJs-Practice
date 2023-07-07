@@ -1,5 +1,5 @@
 import './App.css';
-import Student from './test';
+import Student from './Test';
 
 function App() {
   return (
