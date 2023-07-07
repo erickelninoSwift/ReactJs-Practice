@@ -2,14 +2,14 @@ import React from "react";
 import './App.css';
 
 
-function Student()
+function Student(props)
 {
+
+    console.log(this.props)
     return (
       <div className="App  myPadding">
 
-         <h1>Welcom to my Hood</h1>
-          <p>    Lorem ipsum dolor sit amet consectetur adipisicing elit. Id perspiciatis odio qui saepe in, dolor facere laboriosam ipsum nisi sit magnam laudantium iure libero quibusdam, sint nobis placeat consequatur rem.</p>
-
+         <h1>Welcom to my Hood {props.name} and {props.age}</h1>
       </div>
     );
 }
