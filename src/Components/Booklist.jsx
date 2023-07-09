@@ -12,8 +12,10 @@ export class Booklist extends Component {
 
         Book:[{Bookname:"hink and Grow Rich" ,writer:"Tiffany"},
             {Bookname:"More money More problems" ,writer:"Davis" },
-            {Bookname:"How to get your mother ? " ,writer:"Harry potter" }]
+            {Bookname:"How to get your mother ? " ,writer:"Harry potter" }],
+        ShwoBooks : true
        }
+     
 
     }
 
@@ -57,6 +59,20 @@ export class Booklist extends Component {
     //     console.log(event.target.value)
     // }
 
+    toggleManger = () =>{
+     
+    
+
+         this.setState({
+
+            ShwoBooks : !this.state.ShwoBooks
+
+         })
+        
+         console.log(this.state.ShwoBooks);
+    
+    }
+
   render() {
 
 
@@ -70,20 +86,22 @@ export class Booklist extends Component {
     const allBooks = this.state.Book;
     
     const allbooksItems = allBooks.map((books,index)=>{
-
-
-        return <Book id={books.id}
+       
+            return <Book id={books.id}
          Bookname ={books.Bookname}
           writer={books.writer} 
           delete={() => this.deleteDataState(index)}
           inputfieldChange = {(event) => this.changeInput(event,index)}/>
+
     });
 
     return (
 
         <div className="App">
+            <button onClick={this.toggleManger}>Toogle Books</button>
+            
         <h1 style={style}>Book list</h1>
-        {allbooksItems}
+        {this.state.ShwoBooks ? allbooksItems : <div className='App'> All data hidden</div>}
         <button onClick={this.changeBookState}>Press me</button>
       </div>  
     )
