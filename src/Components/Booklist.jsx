@@ -83,9 +83,16 @@ export class Booklist extends Component {
         
     }
 
+    let content  = <div className='App'>
+        All data hidden
+        
+        </div>
+
+
     const allBooks = this.state.Book;
-    
-    const allbooksItems = allBooks.map((books,index)=>{
+    if(this.state.ShwoBooks)
+    {
+         content = allBooks.map((books,index)=>{
        
             return <Book id={books.id}
          Bookname ={books.Bookname}
@@ -94,6 +101,8 @@ export class Booklist extends Component {
           inputfieldChange = {(event) => this.changeInput(event,index)}/>
 
     });
+    }
+   
 
     return (
 
@@ -101,7 +110,7 @@ export class Booklist extends Component {
             <button onClick={this.toggleManger}>Toogle Books</button>
             
         <h1 style={style}>Book list</h1>
-        {this.state.ShwoBooks ? allbooksItems : <div className='App'> All data hidden</div>}
+        {content}
         <button onClick={this.changeBookState}>Press me</button>
       </div>  
     )
