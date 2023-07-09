@@ -14,7 +14,7 @@ const Book = (props) =>{
 
         <h2 onClick={props.delete}>Book name: {props.Bookname}</h2>
          <h3 style={style}>Writer : {props.writer}</h3>
-         <input type="text" onChange ={props.inputchange}/>
+         <input type="text" onChange ={props.inputfieldChange} value={props.Bookname}/>
     </div>);
 }
 

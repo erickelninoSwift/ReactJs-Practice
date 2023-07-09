@@ -27,16 +27,15 @@ export class Booklist extends Component {
         })
     }
 
-    changeInput = (event) =>{
+    changeInput = (event,index) =>{
 
+        let alldata =  this.state.Book;
+       
+        alldata[index].Bookname = event.target.value;
+    
         this.setState({
-
-            Book:[{Bookname: event.target.value ,writer:"Celie"},
-                {Bookname: event.target.value ,writer:"trevon martin" },
-                {Bookname: event.target.value,writer:"Troy davis" }]
-        })
-
-
+            Book : alldata
+        });
 
     }
 
@@ -50,6 +49,13 @@ export class Booklist extends Component {
        
 
     }
+
+
+    // imputfieldChange = event =>{
+
+    //     let alldata = this.state.Book;
+    //     console.log(event.target.value)
+    // }
 
   render() {
 
@@ -66,10 +72,11 @@ export class Booklist extends Component {
     const allbooksItems = allBooks.map((books,index)=>{
 
 
-        return <Book
+        return <Book id={books.id}
          Bookname ={books.Bookname}
           writer={books.writer} 
-          delete={() => this.deleteDataState(index)}/>
+          delete={() => this.deleteDataState(index)}
+          inputfieldChange = {(event) => this.changeInput(event,index)}/>
     });
 
     return (
