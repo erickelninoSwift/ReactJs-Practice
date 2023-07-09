@@ -27,7 +27,7 @@ export class Booklist extends Component {
         })
     }
 
-    changeInput = (event,index) =>{
+    changeInput = (event) =>{
 
         this.setState({
 
@@ -37,6 +37,17 @@ export class Booklist extends Component {
         })
 
 
+
+    }
+
+    deleteDataState = (index) =>{
+
+        let alldata = this.state.Book;
+        alldata.splice(index,1);
+       this.setState({
+        Book: alldata
+       });
+       
 
     }
 
@@ -54,14 +65,11 @@ export class Booklist extends Component {
     
     const allbooksItems = allBooks.map((books,index)=>{
 
-        if(index ===2)
-        {
-            return <Book inputchange ={this.changeInput} Bookname ={books.Bookname} writer={books.writer} change={this.changeBookState}/>
-        }else
-        {
-            return <Book inputchange ={this.changeInput} Bookname ={books.Bookname} writer={books.writer} />
-        }
-      
+
+        return <Book
+         Bookname ={books.Bookname}
+          writer={books.writer} 
+          delete={() => this.deleteDataState(index)}/>
     });
 
     return (

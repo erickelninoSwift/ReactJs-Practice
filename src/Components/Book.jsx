@@ -12,7 +12,7 @@ const Book = (props) =>{
     return (
      <div className="App Book">
 
-        <h2 onClick={props.change}>Book name: {props.Bookname}</h2>
+        <h2 onClick={props.delete}>Book name: {props.Bookname}</h2>
          <h3 style={style}>Writer : {props.writer}</h3>
          <input type="text" onChange ={props.inputchange}/>
     </div>);
