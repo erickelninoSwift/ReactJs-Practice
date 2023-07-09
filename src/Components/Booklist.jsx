@@ -42,10 +42,15 @@ export class Booklist extends Component {
         }
       
     });
+
+    const valuedata = (event) =>{
+      console.log(event.target.value)
+    }
     
     return (
         <div className="App">
         <h1>Book list</h1>
+        <input onChange={valuedata}/>
         {allbooksItems}
         <button onClick={this.changeBookState}>Press me</button>
       </div>  
