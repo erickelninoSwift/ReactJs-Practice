@@ -2,16 +2,15 @@ import React from "react";
 import './App.css';
 
 
-function Student(props)
+function Test(props)
 {
-
-    console.log(this.props)
     return (
       <div className="App  myPadding">
 
-         <h1>Welcom to my Hood {props.name} and {props.age}</h1>
+         {/* <h4>Welcom to my Hood {props.name} and {props.age}</h4>
+         <h4>We here nigga</h4> */}
       </div>
     );
 }
 
-export default Student;
+export default Test;
