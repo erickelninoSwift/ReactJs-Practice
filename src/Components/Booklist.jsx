@@ -27,7 +27,28 @@ export class Booklist extends Component {
         })
     }
 
+    changeInput = (event,index) =>{
+
+        this.setState({
+
+            Book:[{Bookname: event.target.value ,writer:"Celie"},
+                {Bookname: event.target.value ,writer:"trevon martin" },
+                {Bookname: event.target.value,writer:"Troy davis" }]
+        })
+
+
+
+    }
+
   render() {
+
+
+    const style = {
+        borderRadius: "5px",
+        color: "Green",
+        fontSize: "30px"
+        
+    }
 
     const allBooks = this.state.Book;
     
@@ -35,22 +56,18 @@ export class Booklist extends Component {
 
         if(index ===2)
         {
-            return <Book Bookname ={books.Bookname} writer={books.writer} change={this.changeBookState}/>
+            return <Book inputchange ={this.changeInput} Bookname ={books.Bookname} writer={books.writer} change={this.changeBookState}/>
         }else
         {
-            return <Book Bookname ={books.Bookname} writer={books.writer} />
+            return <Book inputchange ={this.changeInput} Bookname ={books.Bookname} writer={books.writer} />
         }
       
     });
 
-    const valuedata = (event) =>{
-      console.log(event.target.value)
-    }
-    
     return (
+
         <div className="App">
-        <h1>Book list</h1>
-        <input onChange={valuedata}/>
+        <h1 style={style}>Book list</h1>
         {allbooksItems}
         <button onClick={this.changeBookState}>Press me</button>
       </div>  
